@@ -162,7 +162,8 @@ function viewHome() {
   const last = S.last && MOD(S.last.id) ? MOD(S.last.id) : null;
   const next = last || MODULES.find(m => status(m.id) !== 'done') || MODULES[0];
   const cont = last ? `Continue: Module ${pad2(last.id)}` : (c ? `Next: Module ${pad2(next.id)}` : 'Start Module 01');
-  let days = null; if (S.plan.date) days = Math.ceil((new Date(S.plan.date + 'T09:00') - new Date()) / 864e5);
+  let days = null;
+  if (S.plan.date) { const t0 = new Date(); t0.setHours(0, 0, 0, 0); days = Math.floor((new Date(S.plan.date + 'T09:00') - t0) / 864e5); }
   const rec = recommendations(3);
   const recItems = rec.weak.length ? rec.weak.map(r => recRow(r)).join('') :
     `<div class="notice">No weak areas yet. Take a few module quizzes or a practice exam and this list will point you to the topics that need another pass.</div>`;
@@ -666,7 +667,7 @@ function viewPlan() {
 }
 function renderPlan(target, example) {
   const now = new Date(); now.setHours(0, 0, 0, 0);
-  const days = Math.ceil((target - now) / 864e5);
+  const days = Math.floor((target - now) / 864e5);
   const todo = MODULES.filter(m => status(m.id) !== 'done');
   const out = $('#planOut');
   if (days < 0) { out.innerHTML = '<div class="notice">That date has passed. Choose a future exam date to build a plan.</div>'; return; }
@@ -679,7 +680,7 @@ function renderPlan(target, example) {
   </div>`;
   if (!todo.length) { out.innerHTML = head + '<div class="card" style="margin-top:12px">All modules are completed. Spend each remaining week taking a full practice exam, then reviewing your weak areas and the math module.</div>'; return; }
   const studyWeeks = weeks >= 2 ? weeks - 1 : 1;
-  // Weight math (18) and state (19) modules double because they take longer.
+  // Financing (12) and math (18) count double because they take longer to learn.
   const weight = m => (m.id === 18 || m.id === 12 ? 2 : 1);
   const totalW = todo.reduce((a, m) => a + weight(m), 0);
   const perWeek = totalW / studyWeeks;

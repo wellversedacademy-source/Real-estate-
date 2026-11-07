@@ -319,7 +319,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 
 /* Planner */
 .weeks { display: flex; flex-direction: column; gap: 10px; }
-.week { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 14px; padding: 14px 16px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+.week { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 14px; padding: 14px 16px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
 .week.review { border-color: var(--brass); background: var(--brass-soft); }
 .week-label { font-family: var(--font-mono); font-size: .85rem; }
 .week-label strong { display: block; font-family: var(--font-display); font-size: 1.05rem; }

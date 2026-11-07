@@ -1,0 +1,43 @@
+<aside class="sidebar" aria-label="Main navigation">
+  <div class="brand">
+    <div class="brand-mark" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>
+    </div>
+    <div>
+      <div class="brand-name">License Path</div>
+      <div class="brand-sub">Real estate pre-license study</div>
+    </div>
+  </div>
+  <nav class="nav" id="sideNav"></nav>
+  <div class="side-foot">
+    <div class="side-progress">
+      <div class="eyebrow">Course progress</div>
+      <div class="bar" aria-hidden="true"><span id="sideBar" style="width:0%"></span></div>
+      <div class="muted" style="font-size:.82rem;margin-top:4px" id="sideText">0 of 20 modules completed</div>
+    </div>
+  </div>
+</aside>
+
+<div class="main">
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="topbar-title" id="topTitle">Dashboard</div>
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="Switch to dark mode" title="Switch light / dark mode"></button>
+    </div>
+  </header>
+  <main class="content" id="view" tabindex="-1"></main>
+</div>
+
+<nav class="bottomnav" id="bottomNav" aria-label="Main navigation"></nav>
+
+<dialog class="term-pop" id="termPop" aria-labelledby="popTerm">
+  <div class="pop-body">
+    <div class="eyebrow" id="popSrc">Glossary</div>
+    <h3 id="popTerm">Term</h3>
+    <p id="popDef"></p>
+  </div>
+  <div class="pop-actions">
+    <a class="btn small ghost" id="popGloss" href="#glossary">Open full glossary</a>
+    <button class="btn small primary" type="button" id="popClose">Close</button>
+  </div>
+</dialog>
